@@ -8,6 +8,21 @@ const NewComponent = (props) => {
     </div>
   )
 }
+const Hello = (props) => {
+  const dateOfBirth = (param) => {
+    const date = new Date();
+    const ages = date.getFullYear()
+    param = props.age
+    return ages - param
+  }
+  return (
+    <div>
+      <p>
+        Hello {props.name}, you are {dateOfBirth()} years old
+      </p>
+    </div>
+  )
+}
 const arr = [
   {
     name: 'Abdullahi',
@@ -15,7 +30,7 @@ const arr = [
   }]
 const name = ['Intelligence', 'Usman']
 let names = name.join(' ')
-function App() {
+function App(props) {
   const [count, setCount] = useState(0)
 
 
@@ -35,6 +50,30 @@ function App() {
   const a = 10
   const b = 20
   console.log(now, a + b)
+
+  const arto = {
+    name: 'Arto Hellas',
+    greet: function () {
+      console.log('hello, my name is ' + this.name)
+    },
+  }
+
+  // arto.greet()
+  // setTimeout(arto.greet, 1000)
+  // setInterval(arto.greet, 1000)
+  // This doesn't work When time out or time interval is added
+  setTimeout(arto.greet.bind(arto), 2000)
+  // The solution to this when using setTimeout or setInterval is using bind after calling the object
+  // Calling arto.greet.bind(arto) creates a new function where this is bound to point to Arto, independent of where and how the method is being called.
+
+  /* Component state, event handlers*/
+
+  const name = 'Peter'
+  const age = 10
+  let [counter, setCounter] = useState(0)
+  setInterval(() => setCounter(counter += 1), 1000)
+  console.log('rendering...', counter)
+
   return (
     <div className="App">
       {a} Plus {b} is {a + b}
@@ -42,8 +81,10 @@ function App() {
       <NewComponent name='Usman Abdullahi Babatunde' />
       <p>{arr[0].name}</p>
       <div>{names}</div>
+      <Hello name="Maya" age={1997} />
+      <Hello name={name} age={2003} />
+      <div>{counter}</div>
     </div>
-
   )
 }
 
