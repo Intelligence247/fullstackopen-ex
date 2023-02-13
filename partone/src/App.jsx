@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import ComplexState from './Components/ComplexState'
+import Header from './Components/Header'
+import Content from './Components/Content'
+import Total from './Components/Total'
 const NewComponent = (props) => {
   return (
     <div className="newcom">
@@ -71,8 +75,27 @@ function App(props) {
   const name = 'Peter'
   const age = 10
   let [counter, setCounter] = useState(0)
-  setInterval(() => setCounter(counter += 1), 1000)
+  // setInterval(() => setCounter(counter + 1), 1000)
   console.log('rendering...', counter)
+  let x = 0
+  const handleClick = () => {
+    console.log('resetting to zero, value before', counter)
+    setCounter(counter + 1)
+    console.log('clicked already ', ++x)
+  }
+  // An event handler is supposed to be either a function or a function reference
+  const [counter2, setCounter2] = useState(0)
+  const increaseByOne = () => setCounter2(counter2 + 1)
+  const setToZero = () => setCounter2(0)
+
+
+  const course = 'Half Stack application development'
+  const part1 = 'Fundamentals of React'
+  const exercises1 = 10
+  const part2 = 'Using props to pass data'
+  const exercises2 = 7
+  const part3 = 'State of a component'
+  const exercises3 = 14
 
   return (
     <div className="App">
@@ -84,7 +107,29 @@ function App(props) {
       <Hello name="Maya" age={1997} />
       <Hello name={name} age={2003} />
       <div>{counter}</div>
+      <p>{counter2}</p>
+      <button onClick={handleClick}>Click Here</button>
+      <button onClick={increaseByOne}>Increase by one</button>
+      <button onClick={setToZero}>Zero</button>
+      <ComplexState />
+
+
+
+<p className='text-[2.5rem] text-[indigo] w-max m-auto'>Exercise starts here</p>
+    
+<Header course={course}/>
+        <Content
+        content1={`${part1} ${exercises1}`}
+        content2={`${part2} ${exercises2}`}
+        content3={`${part3} ${exercises3}`}
+        />
+        
+      <p>Number of exercises <Total total= {exercises1 + exercises2 + exercises3}
+      />
+      </p>
+
     </div>
+
   )
 }
 
