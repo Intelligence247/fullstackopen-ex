@@ -140,6 +140,17 @@ function App(props) {
       />
       </p>
 
+
+
+
+
+
+
+
+<p className='text-yellow-800 text-[2rem] w-max m-auto mt-20 mb-5'>Exercises 1.6.-1.14.</p>
+
+
+
     </div>
 
   )
