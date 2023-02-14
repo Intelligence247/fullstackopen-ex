@@ -1,10 +1,11 @@
 * {
-  background-color: black;
   color: white;
   font-size: 1.2rem;
 }
-
-button {
+.App{
+  background-color: black;
+}
+button:not(.unicafe button) {
   background-color: aqua;
   padding: 0.2rem 1rem;
   border-radius: 20px;

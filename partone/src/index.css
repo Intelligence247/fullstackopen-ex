@@ -1,3 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.unicafe button{
+    @apply border-black bg-black ml-4 px-4 rounded-lg
+}

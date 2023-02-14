@@ -5,6 +5,7 @@ import ComplexState from './Components/ComplexState'
 import Header from './Components/Header'
 import Content from './Components/Content'
 import Total from './Components/Total'
+import Unicafe from './Components/Unicafe'
 const NewComponent = (props) => {
   return (
     <div className="newcom">
@@ -140,16 +141,8 @@ function App(props) {
       />
       </p>
 
-
-
-
-
-
-
-
 <p className='text-yellow-800 text-[2rem] w-max m-auto mt-20 mb-5'>Exercises 1.6.-1.14.</p>
-
-
+<Unicafe/>
 
     </div>
 
